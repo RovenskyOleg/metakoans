@@ -1,7 +1,7 @@
 class Object
   def attribute(name, value = nil, &block)
       
-       #sets
+      #sets
       define_method("#{name}=") do |value|
         instance_variable_set "@#{name}", value
       end
@@ -12,8 +12,12 @@ class Object
       end
       
       #query
+      #define_method("#{name}?") do
+       # !instance_eval("#{name}").nil?
+      #end
+
       define_method("#{name}?") do
-        instance_eval("#{name}?").nil?
+        !send(name).nil?
       end
   end
 end
