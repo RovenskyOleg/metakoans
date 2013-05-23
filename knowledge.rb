@@ -11,10 +11,12 @@ class Object
       define_method("#{name}") do 
         if instance_variable_defined? "@#{name}"
           instance_variable_get "@#{name}"
-        else 
-          value 
+        elsif value = block_given? 
+          instance_eval(&block)
+        else
+          value
         end
-      end      
+      end     
       #query
       #define_method("#{name}?") do
        # !instance_eval("#{name}").nil?
