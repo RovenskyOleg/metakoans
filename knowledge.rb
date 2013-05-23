@@ -17,10 +17,6 @@ class Object
           value
         end
       end     
-      #query
-      #define_method("#{name}?") do
-       # !instance_eval("#{name}").nil?
-      #end
       define_method("#{name}?") do
         !send(name).nil?
       end
