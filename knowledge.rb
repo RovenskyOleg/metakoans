@@ -11,7 +11,7 @@ class Object
       define_method("#{name}") do 
         if instance_variable_defined? "@#{name}"
           instance_variable_get "@#{name}"
-        elsif value = block_given? 
+        elsif block_given?
           instance_eval(&block)
         else
           value
