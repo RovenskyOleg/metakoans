@@ -1,5 +1,6 @@
 class Object
   def attribute(name, value = nil, &block)
+
       
       #sets
       define_method("#{name}=") do |value|
@@ -8,7 +9,11 @@ class Object
       
       #get
       define_method("#{name}") do 
-        instance_variable_get "@#{name}" 
+        if instance_variable_defined? "@#{name}"
+          instance_variable_get "@#{name}"
+        else 
+          value 
+        end
       end
       
       #query
