@@ -13,7 +13,7 @@ class Object
       
       #query
       defined_method ("#{name}?") do
-        instance_ival("#{name}?").nil?
+        instance_eval("#{name}?").nil?
       end
   end
 end
